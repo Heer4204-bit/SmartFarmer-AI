@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kisan.AI - Empowering Indian Agriculture</title>
+    <!-- Tailwind CSS for sleek, modern UI -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for beautiful icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col">
+
+    <!-- Header Navigation -->
+    <header class="bg-emerald-600 text-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="bg-white text-emerald-600 p-2 rounded-full font-bold text-xl">
+                    🌾
+                </div>
+                <span class="text-2xl font-extrabold tracking-wide">Kisan.<span class="text-orange-400">AI</span></span>
+            </div>
+            <nav class="hidden md:flex space-x-8 font-medium">
+                <a href="#features" class="hover:text-orange-300 transition">Features</a>
+                <a href="#scanner" class="hover:text-orange-300 transition">Crop Scanner</a>
+                <a href="#chatbot" class="hover:text-orange-300 transition">Kisan Chat</a>
+            </nav>
+            <span class="bg-orange-500 text-white px-4 py-1.5 rounded-full text-sm font-semibold animate-pulse">
+                🇮🇳 AI for India
+            </span>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-emerald-700 to-teal-600 text-white py-20 px-6 text-center">
+        <div class="max-w-3xl mx-auto">
+            <h1 class="text-4xl md:text-5xl font-black mb-6 leading-tight">
+                Empowering Indian Farmers with Smart AI Solutions
+            </h1>
+            <p class="text-lg md:text-xl text-emerald-100 mb-8">
+                Crop disease detection, localized weather advisories, and real-time AI assistance in regional Indian languages.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#scanner" class="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-3 rounded-lg shadow-lg transition duration-300">
+                    <i class="fa-solid fa-qrcode mr-2"></i> Scan Crop Now
+                </a>
+                <a href="#chatbot" class="bg-white hover:bg-gray-100 text-emerald-800 font-bold px-8 py-3 rounded-lg shadow-lg transition duration-300">
+                    <i class="fa-solid fa-comments mr-2"></i> Talk to AI Mitra
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Features Section -->
+    <section id="features" class="container mx-auto px-6 py-16">
+        <h2 class="text-3xl font-bold text-center text-slate-800 mb-12">How Kisan.AI Helps Our Farmers</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Feature 1 -->
+            <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-emerald-500 hover:shadow-xl transition">
+                <div class="text-emerald-500 text-3xl mb-4"><i class="fa-solid fa-leaf"></i></div>
+                <h3 class="text-xl font-semibold mb-2">Instant Disease Diagnosis</h3>
+                <p class="text-gray-600">Upload a photo of your infected crop and get AI-powered organic & chemical treatment ideas within seconds.</p>
+            </div>
+            <!-- Feature 2 -->
+            <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-orange-500 hover:shadow-xl transition">
+                <div class="text-orange-500 text-3xl mb-4"><i class="fa-solid fa-language"></i></div>
+                <h3 class="text-xl font-semibold mb-2">Multilingual Support</h3>
+                <p class="text-gray-600">Interact and receive crucial updates in Hindi, Marathi, Telugu, Tamil, and other regional languages.</p>
+            </div>
+            <!-- Feature 3 -->
+            <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-teal-500 hover:shadow-xl transition">
+                <div class="text-teal-500 text-3xl mb-4"><i class="fa-solid fa-cloud-sun-rain"></i></div>
+                <h3 class="text-xl font-semibold mb-2">Smart Weather Advisory</h3>
+                <p class="text-gray-600">Receive precise recommendations depending on your local region's moisture, soil, and temperature data.</p>
+            </div>
+        </div>
+    </section>
+
+    <hr class="border-gray-200 container mx-auto">
+
+    <!-- Interactive Section: Scanner & Chat -->
+    <main class="container mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12">
+        
+        <!-- Interactive Crop Scanner (Simulation) -->
+        <section id="scanner" class="bg-white p-8 rounded-2xl shadow-lg flex flex-col justify-between">
+            <div>
+                <h2 class="text-2xl font-bold text-slate-800 mb-2 flex items-center">
+                    <span class="mr-2">🔬</span> AI Crop Health Scanner
+                </h2>
+                <p class="text-gray-500 mb-6">Upload a clear photo of your plant leaves to detect pests, molds, or nutrient deficiencies.</p>
+                
+                <div class="border-2 border-dashed border-emerald-300 rounded-xl p-8 text-center bg-emerald-50/50 cursor-pointer hover:bg-emerald-50 transition" onclick="simulateUpload()">
+                    <i class="fa-solid fa-cloud-arrow-up text-4xl text-emerald-500 mb-3 animate-bounce"></i>
+                    <p class="font-medium text-emerald-800" id="upload-status">Click to upload leaf image</p>
+                    <p class="text-xs text-gray-400 mt-1">Supports JPG, PNG (Max 5MB)</p>
+                </div>
+
+                <!-- Hidden Input for file upload simulation -->
+                <input type="file" id="file-input" class="hidden" onchange="showScanningResult()">
+
+                <!-- Mock Result Box -->
+                <div id="scanner-result" class="hidden mt-6 bg-amber-50 border border-amber-200 p-4 rounded-xl">
+                    <h4 class="font-bold text-amber-800 flex items-center">
+                        <i class="fa-solid fa-triangle-exclamation mr-2 text-orange-500"></i> AI Diagnosis: Early Blight (Tomato Leaf)
+                    </h4>
+                    <p class="text-sm text-gray-600 mt-2"><strong>Cause:</strong> Fungal pathogen Alternaria solani.</p>
+                    <p class="text-sm text-gray-600 mt-1"><strong>Recommendation:</strong> Avoid overhead watering, apply copper-based organic fungicides immediately.</p>
+                </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-between text-xs text-gray-400">
+                <span>Model Accuracy: ~96.4%</span>
+                <span>Dataset: Indian Crops v4.2</span>
+            </div>
+        </section>
+
+        <!-- Interactive AI Chatbot (Simulation) -->
+        <section id="chatbot" class="bg-white p-8 rounded-2xl shadow-lg flex flex-col h-[500px]">
+            <div class="border-b border-gray-100 pb-4 mb-4 flex items-center space-x-3">
+                <div class="w-10 h-10 bg-emerald-500 text-white rounded-full flex items-center justify-center font-bold">
+                    🤖
+                </div>
+                <div>
+                    <h3 class="font-bold text-slate-800">Kisan Mitra AI</h3>
+                    <p class="text-xs text-green-500"><span class="inline-block w-2 h-2 rounded-full bg-green-500 mr-1 animate-ping"></span> Active Now (Hindi/Hinglish)</p>
+                </div>
+            </div>
+
+            <!-- Chat Area -->
+            <div class="flex-1 overflow-y-auto space-y-4 mb-4 pr-2" id="chat-box">
+                <!-- AI Welcome Message -->
+                <div class="flex space-x-2">
+                    <div class="bg-gray-100 text-gray-800 rounded-lg p-3 text-sm max-w-[80%]">
+                        Namaste! Aap apni kheti-badi ya fasal se judi koi bhi samasya yahan pooch sakte hain. (Ask me anything about your farming!)
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Form -->
+            <form onsubmit="sendMessage(event)" class="flex items-center space-x-2">
+                <input type="text" id="chat-input" placeholder="Type here (e.g., tamatar ke patte peele kyun ho rahe hain?)" 
+                       class="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+                <button type="submit" class="bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 transition">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 mt-auto text-center border-t-4 border-orange-500">
+        <div class="container mx-auto px-6">
+            <p class="text-white font-bold mb-2">Build in AI for India Hackathon 🇮🇳</p>
+            <p class="text-sm">Created with ❤️ using Tailwind CSS & Pure JavaScript for empowering 140+ Crore citizens.</p>
+        </div>
+    </footer>
+
+    <!-- Interactive JavaScript Simulation logic -->
+    <script>
+        // Scanner Simulation
+        function simulateUpload() {
+            document.getElementById('file-input').click();
+        }
+
+        function showScanningResult() {
+            const status = document.getElementById('upload-status');
+            const resultBox = document.getElementById('scanner-result');
+            
+            status.innerHTML = "<i class='fa-solid fa-spinner animate-spin text-emerald-500 mr-2'></i> Analyzing leaf with AI model...";
+            resultBox.classList.add('hidden');
+
+            setTimeout(() => {
+                status.innerHTML = "<i class='fa-solid fa-circle-check text-emerald-600 mr-2'></i> Image Uploaded successfully!";
+                resultBox.classList.remove('hidden');
+            }, 1800);
+        }
+
+        // Chatbot Simulation
+        const chatBox = document.getElementById('chat-box');
+        const chatInput = document.getElementById('chat-input');
+
+        function sendMessage(e) {
+            e.preventDefault();
+            const userText = chatInput.value.trim();
+            if(!userText) return;
+
+            // Append User Message
+            appendMessage(userText, 'user');
+            chatInput.value = '';
+
+            // Simulate AI Thinking & Reply
+            setTimeout(() => {
+                let reply = "Humne aapka sawaal samajh liya hai. Iska hal hai: Garm mausam me fasal ko subah jaldi paani dein aur khet me drainage ka dhyaan rakhein.";
+                
+                if (userText.toLowerCase().includes('tamatar') || userText.toLowerCase().includes('tomato')) {
+                    reply = "Tamatar ke patte peele hone ke do bade kaaran ho sakte hain: Paani ki kami ya fir Nitrogen deficiency. Aap 10 din ke gap me halki urea ya organic compost ka prayog karein.";
+                } else if (userText.toLowerCase().includes('weather') || userText.toLowerCase().includes('mausam')) {
+                    reply = "Aapke kshetra mein agle 3 din halki baarish ke asar hain. Fasal mein naya keet-naashak (pesticide) abhi na chhidkein.";
+                }
+
+                appendMessage(reply, 'ai');
+            }, 1000);
+        }
+
+        function appendMessage(text, sender) {
+            const wrapper = document.createElement('div');
+            wrapper.className = sender === 'user' ? 'flex justify-end' : 'flex space-x-2';
+            
+            const bubble = document.createElement('div');
+            bubble.className = sender === 'user' 
+                ? 'bg-emerald-600 text-white rounded-lg p-3 text-sm max-w-[80%]' 
+                : 'bg-gray-100 text-gray-800 rounded-lg p-3 text-sm max-w-[80%]';
+            bubble.innerText = text;
+
+            wrapper.appendChild(bubble);
+            chatBox.appendChild(wrapper);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+    </script>
+</body>
+</html>
